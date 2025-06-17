@@ -7,8 +7,10 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Tombol Tema -->
   <button id="toggle-theme" class="theme-toggle" aria-label="Toggle Dark Mode">🌗</button>
 
+  <!-- Header Hero -->
   <header class="hero">
     <div class="container">
       <img src="https://files.catbox.moe/gcwmgo.jpg" alt="Foto Profil" class="profile-img" />
@@ -17,7 +19,9 @@
     </div>
   </header>
 
+  <!-- Konten Utama -->
   <main>
+    <!-- Tentang Saya -->
     <section class="about fade-in">
       <div class="container">
         <h2>About Me</h2>
@@ -25,6 +29,7 @@
       </div>
     </section>
 
+    <!-- Proyek -->
     <section class="projects fade-in">
       <div class="container">
         <h2>My Projects</h2>
@@ -42,6 +47,7 @@
       </div>
     </section>
 
+    <!-- Kontak -->
     <section class="contact fade-in">
       <div class="container">
         <h2>Contact</h2>
@@ -53,12 +59,33 @@
     </section>
   </main>
 
+  <!-- Footer -->
   <footer>
     <div class="container">
       <p>&copy; 2025 <strong>hann</strong>. All rights reserved.</p>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- JavaScript -->
+  <script>
+    const toggle = document.getElementById('toggle-theme');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+    });
+
+    // Efek fade-in saat scroll
+    const faders = document.querySelectorAll('.fade-in');
+    const options = {
+      threshold: 0.1
+    };
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, options);
+    faders.forEach(fade => observer.observe(fade));
+  </script>
 </body>
 </html>
