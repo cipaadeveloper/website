@@ -5,6 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Portofolio Hann</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Tambahan untuk modal viewer */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    .modal-content {
+      display: block;
+      margin: 5% auto;
+      max-width: 80%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #000;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #ff0000;
+    }
+  </style>
 </head>
 <body>
   <!-- Tombol Tema -->
@@ -13,7 +49,9 @@
   <!-- Header Hero -->
   <header class="hero">
     <div class="container">
-      <img src="https://files.catbox.moe/gcwmgo.jpg" alt="Foto Profil" class="profile-img" />
+      <a id="profile-link" href="#">
+        <img src="https://files.catbox.moe/gcwmgo.jpg" alt="Foto Profil" class="profile-img" />
+      </a>
       <h1 class="name">hann</h1>
       <p class="tagline">Web Developer | UI/UX Designer</p>
     </div>
@@ -42,7 +80,6 @@
             <h3>WhatsApp Bot Script</h3>
             <p>Custom script to automate WhatsApp responses using Baileys and Node.js.</p>
           </div>
-          <!-- Tambahkan proyek lainnya di sini -->
         </div>
       </div>
     </section>
@@ -66,26 +103,52 @@
     </div>
   </footer>
 
+  <!-- Modal untuk profil -->
+  <div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImg" alt="Foto Profil Besar" />
+  </div>
+
   <!-- JavaScript -->
   <script>
+    // Toggle dark mode
     const toggle = document.getElementById('toggle-theme');
     toggle.addEventListener('click', () => {
       document.body.classList.toggle('dark');
     });
 
-    // Efek fade-in saat scroll
+    // Fade-in scroll
     const faders = document.querySelectorAll('.fade-in');
-    const options = {
-      threshold: 0.1
-    };
-    const observer = new IntersectionObserver(function(entries) {
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
         }
       });
-    }, options);
+    }, { threshold: 0.1 });
     faders.forEach(fade => observer.observe(fade));
+
+    // Modal logic
+    const modal = document.getElementById("myModal");
+    const modalImg = document.getElementById("modalImg");
+    const profileLink = document.getElementById("profile-link");
+    const close = document.getElementsByClassName("close")[0];
+
+    profileLink.addEventListener("click", function(e) {
+      e.preventDefault();
+      modal.style.display = "block";
+      modalImg.src = "https://files.catbox.moe/gcwmgo.jpg";
+    });
+
+    close.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
   </script>
 </body>
 </html>
