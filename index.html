@@ -1,57 +1,61 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portofolio Saya</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portofolio Hann</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Tombol toggle mode -->
-  <button id="toggle-theme" class="theme-toggle">🌓</button>
+  <button id="toggle-theme" class="theme-toggle" aria-label="Toggle Dark Mode">🌗</button>
 
-  <header>
+  <header class="hero">
     <div class="container">
-      <img src="https://files.catbox.moe/gcwmgo.jpg/120" alt="Foto Profil" class="profile-img">
-      <h1>hann</h1>
-      <p>Web Developer | UI/UX Designer</p>
+      <img src="https://files.catbox.moe/gcwmgo.jpg" alt="Foto Profil" class="profile-img" />
+      <h1 class="name">hann</h1>
+      <p class="tagline">Web Developer | UI/UX Designer</p>
     </div>
   </header>
 
-  <section class="about fade-in">
-    <div class="container">
-      <h2>About Me</h2>
-      <p>I am a web developer experienced in building modern, fast and responsive websites.</p>
-    </div>
-  </section>
-
-  <section class="projects fade-in">
-    <div class="container">
-      <h2>My Project</h2>
-      <div class="project-grid">
-        <div class="project-card">
-          <h3>Online Shop Website.</p>
-        </div>
-        <div class="project-card">
-          <h3>Whatsapp Bot Script</h3>
-          <p>Whatsapp Bot Script To Make It Easier.</p>
-        </div>
-        <!-- Tambahkan proyek lainnya -->
+  <main>
+    <section class="about fade-in">
+      <div class="container">
+        <h2>About Me</h2>
+        <p>I am a web developer experienced in building modern, fast and responsive websites. I focus on user experience and aesthetic frontend development.</p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="contact fade-in">
-    <div class="container">
-      <h2>Kontak</h2>
-      <p>Email: hann@email.com</p>
-      <p>WhatsApp: <a href="https://wa.me/6283892597828" target="_blank">Hubungi Saya</a></p>
-    </div>
-  </section>
+    <section class="projects fade-in">
+      <div class="container">
+        <h2>My Projects</h2>
+        <div class="project-grid">
+          <div class="project-card">
+            <h3>Online Shop Website</h3>
+            <p>A responsive and modern e-commerce website built with React and Firebase.</p>
+          </div>
+          <div class="project-card">
+            <h3>WhatsApp Bot Script</h3>
+            <p>Custom script to automate WhatsApp responses using Baileys and Node.js.</p>
+          </div>
+          <!-- Tambahkan proyek lainnya di sini -->
+        </div>
+      </div>
+    </section>
+
+    <section class="contact fade-in">
+      <div class="container">
+        <h2>Contact</h2>
+        <ul>
+          <li>Email: <a href="mailto:hann@email.com">hann@email.com</a></li>
+          <li>WhatsApp: <a href="https://wa.me/6283892597828" target="_blank">Chat via WhatsApp</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
 
   <footer>
     <div class="container">
-      <p>&copy; 2025 hann. All rights reserved.</p>
+      <p>&copy; 2025 <strong>hann</strong>. All rights reserved.</p>
     </div>
   </footer>
 
